@@ -1,0 +1,19 @@
+.img-thumbnail {
+    padding: 0.25rem;
+    background-color: #fff;
+    border: 6px solid #c7af42;
+    /* border-radius: 0.25rem; */
+    border-radius: 50%;
+    max-width: 200px;
+    height: auto;
+    text-align: right;
+  }
+
+  .mb-5 {
+    text-align: left;
+  }
+  
+  .td-to-right{
+    text-align: right;
+  }
+    
