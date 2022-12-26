@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href=" {% static 'css/bootstrap.css' %} ">
     <link rel="stylesheet" href=" {% static 'css/main.css' %} ">
+    <link rel="stylesheet" href=" {% static 'css/modal.css' %} ">
     <title>Deploy Django Project</title>
 </head>
 <body>
@@ -20,10 +21,12 @@
                 <table width='100%'>
                     <tr>
                         <td>
-                            <h2 class="mb-5">{{ post.title }}</h2>
+                            <h2 class="mb-5">{{post.title}}</h2><h5> {{post.created|date:'Y-m-d H:i'}}</h5>
                         </td>
                         <td class="td-to-right">
-                            <img id="myImg" src=" {{post.img.url}} " class="img-thumbnail" alt="">
+                            <!-- myImg class is used for JS to detect base images. -->
+                            {% endcomment %}
+                            <img src=" {{post.img.url}} " class="img-thumbnail myImg" alt="">
                         </td>
                     </tr>
                 </table>
@@ -34,7 +37,19 @@
             </div>
         </div>
     </div>
-    
+    <!-- The Modal -->
+    <!-- This div is used to be injectted with image when 
+        s.c. 'popup' status (i.e. mouse is moved over the 'medallion') is reached.
+        modal.css makes this div invisible. But modal.js injects an image to this div and make it visible.
+        The div is hided by JS when appr. events are occured.
+        See static/js/modal.js
+    -->
+    <div id="myModal" class="modal">
+        <span class="close">To return to Posts hover above this text or click left or press ESC &times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+    </div>
+  
 </body>
-<script src= "{% static 'js/dummy.js' %}" ></script>
+<script src= "{% static 'js/modal.js' %}" ></script>
 </html>
